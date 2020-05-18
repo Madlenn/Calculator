@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/linearLayout"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/number1"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:width="25dp"
+            android:ems="10"
+            android:hint="number 1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/number2"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:width="25dp"
+            android:ems="10"
+            android:hint="number 2"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/multiply"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:width="50dip"
+            android:text="*" />
+
+        <Button
+            android:id="@+id/subtract"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:width="50dip"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:width="50dp"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/divide"
+            android:layout_width="100dip"
+            android:layout_height="38dp"
+            android:width="50dip"
+            android:fitsSystemWindows="false"
+            android:text="/" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:drawingCacheQuality="auto"
+        android:text="Result"
+        android:textSize="25sp" />
+
+</LinearLayout>
