@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,38 +16,47 @@ public class MainActivity extends AppCompatActivity {
     float result_num;
     int num1, num2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        result = (TextView)findViewById(R.id.result);
-        number1 = (EditText)findViewById(R.id.number1);
-        number2 = (EditText)findViewById(R.id.number2);
-        add = (Button)findViewById(R.id.add);
-        subtract = (Button)findViewById(R.id.subtract);
-        divide = (Button)findViewById(R.id.divide);
-        multiply = (Button)findViewById(R.id.multiply);
+        result = findViewById(R.id.result);
+        number1 = findViewById(R.id.number1);
+
+
+        number2 = findViewById(R.id.number2);
+        add = findViewById(R.id.add);
+        subtract = findViewById(R.id.subtract);
+        divide = findViewById(R.id.divide);
+        multiply = findViewById(R.id.multiply);
+
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                num1=Integer.parseInt(number1.getText().toString());
-                num2=Integer.parseInt(number2.getText().toString());
-                result_num=num1+num2;
+                if (isEmpty()) {
+                    //openDialog("to pole nie może być puste");
+                    number1.setError("To pole nie może być puste");
+                } else {
+                    num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
+                    num2 = Integer.parseInt(number2.getText().toString());
 
-                result.setText(String.valueOf(result_num));
-
+                    result_num = num1 + num2;
+                    result.setText(String.valueOf(result_num));
+                }
             }
         });
         subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                num1=Integer.parseInt(number1.getText().toString());
-                num2=Integer.parseInt(number2.getText().toString());
-                result_num=num1-num2;
+                num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
+                num2 = Integer.parseInt(number2.getText().toString());
 
+                result_num = num1 - num2;
                 result.setText(String.valueOf(result_num));
 
             }
@@ -55,13 +65,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                num1=Integer.parseInt(number1.getText().toString());
-                num2=Integer.parseInt(number2.getText().toString());
-                if (num2!=0){
-                    result_num=num1/num2;
+                num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
+                num2 = Integer.parseInt(number2.getText().toString());
+                if (num2 == 0) {
+                    openDialog("nie dziel cholero przez zero");
+
+                } else if (num1 == 0) {
+                    openDialog("bez liczenia powiem ci, że wynik to 0");
+                } else {
+                    result_num = num1 / num2;
                     result.setText(String.valueOf(result_num));
                 }
-                    else  result.setText(String.valueOf(result_num=0));
 
             }
         });
@@ -69,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                num1=Integer.parseInt(number1.getText().toString());
-                num2=Integer.parseInt(number2.getText().toString());
-                result_num=num1*num2;
+                num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
+                num2 = Integer.parseInt(number2.getText().toString());
+               // check();
+                result_num = num1 * num2;
 
                 result.setText(String.valueOf(result_num));
 
@@ -79,4 +94,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    public void openDialog(String message) {
+        DialogBox exampleDialog = new DialogBox();
+        Bundle bundle = new Bundle();
+        bundle.putString("message", message);
+        exampleDialog.setArguments(bundle);
+        exampleDialog.show(getSupportFragmentManager(), "cos1");
+    }
+
+
+    public boolean isEmpty(){
+        String pole1 = number1.getText().toString();
+        String pole2 = number2.getText().toString();
+      TextUtils.isEmpty(pole1);
+      return true;
+        /*(TextUtils.isEmpty(pole1) || TextUtils.isEmpty(pole2)) {
+            openDialog("to pole nie może być puste");
+            number1.setError("To pole nie może być puste");
+            number2.setError("To pole nie może być puste!");
+        }*/
+    }
 }
+
+
+
