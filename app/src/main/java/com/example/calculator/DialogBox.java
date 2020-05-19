@@ -16,26 +16,8 @@ public class DialogBox extends AppCompatDialogFragment {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
-/*        public Dialog onCreateDialog(Bundle savedInstanceState) {
-        }
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
-        builder1.setTitle("Error")
-                .setMessage("nie ")
-                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });*/
-
         return builder.create();
-        //return builder1.create();
-
     }
-
-
-
 }

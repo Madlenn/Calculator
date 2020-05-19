@@ -1,7 +1,7 @@
 package com.example.calculator;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (isEmpty()) {
-
-                } else {
+                if (!isEmpty()) {
                     num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
                     num2 = Integer.parseInt(number2.getText().toString());
                     result_num = num1 + num2;
@@ -46,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (isEmpty()) {
-
-                } else {
+                if (!isEmpty()) {
                     num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
                     num2 = Integer.parseInt(number2.getText().toString());
                     result_num = num1 - num2;
@@ -61,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (isEmpty()) {
-
-                } else {
+                if (!isEmpty()) {
                     num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
                     num2 = Integer.parseInt(number2.getText().toString());
                     if (num2 == 0) {
@@ -82,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (isEmpty()) {
-                } else {
+                if (!isEmpty()) {
                     num1 = Integer.parseInt(MainActivity.this.number1.getText().toString());
                     num2 = Integer.parseInt(number2.getText().toString());
                     result_num = num1 * num2;
